@@ -1,6 +1,7 @@
 package com.erik123.memorygame
 
 import android.animation.ArgbEvaluator
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,6 +21,7 @@ import com.erik123.memorygame.models.BoardSize
 import com.erik123.memorygame.models.MemoryCard
 import com.erik123.memorygame.models.MemoryGame
 import com.erik123.memorygame.utils.Default_Icons
+import com.erik123.memorygame.utils.EXTRA_BOARD_SIZE
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener
 import com.google.android.material.snackbar.Snackbar
 
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         //lateinit because creation occurs in OnCreate method
     companion object{
         private const val TAG ="MainActivity"
+        private const val CREATE_REQUEST_CODE = 141
 
     }
 
@@ -81,9 +84,34 @@ class MainActivity : AppCompatActivity() {
                 showNewSizeDialog()
                 return true
             }
+            R.id.mi_custom -> {
+                showCreationDialog()
+                return true
+            }
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun showCreationDialog() {
+        val boardSizeView =  LayoutInflater.from(this).inflate(R.layout.dialog_board_size, null)
+
+        val radioGroupSize = boardSizeView.findViewById<RadioGroup>(R.id.radioGroup)
+          showAlertDialog("Create your own memory board", boardSizeView, View.OnClickListener {
+              val desiredBoardSize = when(radioGroupSize.checkedRadioButtonId)
+            {
+                R.id.rbEasy  -> BoardSize.EASY
+                R.id.rbMedium -> BoardSize.MEDIUM
+                else -> BoardSize.HARD
+            }
+
+            //Navigate the user to new activity
+           val intent  = Intent(this, CreateActivity::class.java)
+           intent.putExtra(EXTRA_BOARD_SIZE,  desiredBoardSize)
+           startActivityForResult(intent, CREATE_REQUEST_CODE)
+
+        })
+
     }
 
     private fun showNewSizeDialog() {

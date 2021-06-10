@@ -2,6 +2,7 @@ package com.erik123.memorygame.utils
 
 import com.erik123.memorygame.R
 
+const val EXTRA_BOARD_SIZE = "EXTRA_BOARD_SIZE"
 val Default_Icons = listOf(
     R.drawable.ic_face,
     R.drawable.ic_flower,
