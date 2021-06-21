@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "143971769577",
+    "project_id": "mm-fb-361fc",
+    "storage_bucket": "mm-fb-361fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143971769577:android:b2b84b988bbb26bfe8a478",
+        "android_client_info": {
+          "package_name": "com.erik123.memorygame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143971769577-omk6124lk69gcgsesanruet1qtlfqfv8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgJKVofpZDGDGniwC2FzPq_5ps79By2Cg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143971769577-omk6124lk69gcgsesanruet1qtlfqfv8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
